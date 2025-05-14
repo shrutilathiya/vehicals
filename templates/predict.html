@@ -1,0 +1,31 @@
+
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vehicle Type Detection</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div class="container" style="text-align: center; margin-top: 40px;">
+    <h3>Prediction Result</h3>
+    <img src="{{ url_for('send_file', filename=image_file_name) }}" style="max-width: 500px; margin: 20px 0;">
+    <p><strong>Prediction:</strong> {{ label }} ({{ accuracy }}%)</p>
+
+    <h4>Detected Vehicle Type:</h4>
+    <form>
+      <label><input type="radio" name="vehicle" {% if label == 'Tempo' %}checked{% endif %}> Tempo</label><br>
+      <label><input type="radio" name="vehicle" {% if label == 'Tuwil' %}checked{% endif %}> Tuwil</label><br>
+      <label><input type="radio" name="vehicle" {% if label == 'Autorickshaw' %}checked{% endif %}> Autorickshaw</label><br>
+      <label><input type="radio" name="vehicle" {% if label == 'Car' %}checked{% endif %}> Car</label><br>
+    </form>
+
+    <br><a href="/">Back to Home</a>
+  </div>
+
+</body>
+</html>
